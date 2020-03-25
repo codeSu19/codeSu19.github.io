@@ -1,18 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>我的第一篇文章</title>
-    <url>/2020/03/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+    <title>搭建hexo博客+部署到Github</title>
+    <url>/2020/03/25/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E5%88%B0Github/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>本文章灵感来源于B站up主codesheep，以及视频评论区里的课代表的博客。为了学习总结经验，经过一定修改和总结后写下了这篇文章，感谢他们的指导。</strong><br>@<a href="目录">TOC</a><br><strong>以下操作均在windows10  64位  系统下演示</strong></p>
+<h1 id="一、准备工作（安装Node-js-和-Git）"><a href="#一、准备工作（安装Node-js-和-Git）" class="headerlink" title="一、准备工作（安装Node.js 和 Git）"></a>一、准备工作（安装Node.js 和 Git）</h1><h1 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h1><p><strong>本文章灵感来源于B站up主codesheep，以及视频评论区里的课代表的博客。为了学习总结经验，经过一定修改和总结后写下了这篇文章，感谢他们的指导。</strong><br>@<a href="目录">TOC</a><br><strong>以下操作均在windows10  64位  系统下演示</strong></p>
+<h1 id="一、准备工作（安装Node-js-和-Git）-1"><a href="#一、准备工作（安装Node-js-和-Git）-1" class="headerlink" title="一、准备工作（安装Node.js 和 Git）"></a>一、准备工作（安装Node.js 和 Git）</h1><hr>
+<h3 id="1、安装Node-js"><a href="#1、安装Node-js" class="headerlink" title="1、安装Node.js"></a>1、安装Node.js</h3><p> 进入 Node.js <a href="https://node.js.org/" target="_blank" rel="noopener">官网</a> </p>
+<blockquote>
+<p><a href="https://node.js.org/" target="_blank" rel="noopener">https://node.js.org/</a></p>
+</blockquote>
+<p>点击下载左边的较稳定版本。下载完之后安装，一直下一步即可。<img src="https://img-blog.csdnimg.cn/20200325101333157.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2-安装-Git"><a href="#2-安装-Git" class="headerlink" title="2.  安装 Git"></a>2.  安装 Git</h3><p>进入 Git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网</a></p>
+<blockquote>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200325141141497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200325141158479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>也是一样下载完后安装，一直下一步就行了。</p>
+<h1 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h1><hr>
+<p>首先，创建一个文件夹（这个文件夹将是你的Hexo博客的一些相关文件放置的地方）<br>然后，打开进入文件夹，点击右键选择 ==Git Bash here== 相当于<strong>从这里进入终端窗口</strong></p>
+<p>分别输入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>查看 node和npm的版本，检测node是否安装成功。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200325144240340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>接下来，我们要安装cnpm</strong></p>
+<p>在终端窗口输入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+<p>等待片刻，安装完后输入  <strong>cnpm</strong>   进行测试。</p>
+<p><strong>然后安装Hexo</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>输入 <strong>hexo -v</strong> 检验<br><img src="https://img-blog.csdnimg.cn/2020032514485886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后输入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>表示把整个项目建立在当前文件夹中</p>
+<p>打开我们刚刚新建立的文件夹，里面含有以下文件即表示博客搭建成功。<br><img src="https://img-blog.csdnimg.cn/20200325151041406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="三、运行测试Hexo"><a href="#三、运行测试Hexo" class="headerlink" title="三、运行测试Hexo"></a>三、运行测试Hexo</h1><hr>
+<h3 id="1、常用命令"><a href="#1、常用命令" class="headerlink" title="1、常用命令"></a>1、常用命令</h3><pre><code>#三连：
+ hexo clean          
+ hexo g             
+ hexo s</code></pre><figure class="highlight"><table><tr><td class="code"><pre><span class="line">hexo clean 	#清理缓存文件</span><br><span class="line">hexo g     	#生成文件</span><br><span class="line">hexo s     	#运行本地服务器</span><br><span class="line">hexo d     	#推送到服务器</span><br></pre></td></tr></table></figure>
+<p>创建文章命令：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">"我的博客文章"</span></span><br></pre></td></tr></table></figure>
+<p>然后就会在文件夹/source/_posts里生成一个对应的md文件，用文本编辑器打开他就可以写文章了，注意最好用Markdown格式书写。</p>
+<p>写完之后在终端窗口输入一波三连即可。</p>
+<h3 id="2、运行博客"><a href="#2、运行博客" class="headerlink" title="2、运行博客"></a>2、运行博客</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>打开浏览器，输入：<code>localohost:4000</code> </p>
+<p><img src="https://img-blog.csdnimg.cn/20200325153036606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>上图是我个人自己设置过主题后的效果</p>
+<p>你们刚搭建完的Hexo博客可能不长这样，那是Hexo默认给你设置的主题。</p>
+<h1 id="四、将Hexo博客部署到Github上"><a href="#四、将Hexo博客部署到Github上" class="headerlink" title="四、将Hexo博客部署到Github上"></a>四、将Hexo博客部署到Github上</h1><hr>
+<p><strong>可能大家觉得每次想打开博客都要先打开终端然后输入hexo s有点麻烦</strong><br><strong>那么，部署到Github上后将会舒服很多</strong></p>
+<p><strong>具体的如何创建一个Github账号在这里就不讲了</strong></p>
+<p><strong>当然，如果你嫌Github运行慢的话，也可以部署到国内的Coding上（具体你们也可以看这位课代表的博客）<a href="https://caiyantao.gitee.io/2019/04/13/Hexo%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="noopener">Hexo学习（二）</a>，在这里就不演示了</strong></p>
+<h3 id="1、创建Github仓库"><a href="#1、创建Github仓库" class="headerlink" title="1、创建Github仓库"></a>1、创建Github仓库</h3><p>先打开Github官网，登录上我们的账号，然后创建一个仓库，这个仓库将是你在终端把文件推送到Github上储存文件的地方。</p>
+<p><strong>注意：这里的仓库名一定要是 你的Github帐户名.github.io</strong><br><strong>这也是你以后打开博客的网址</strong><br><img src="https://img-blog.csdnimg.cn/20200325155225935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2、推送到服务器"><a href="#2、推送到服务器" class="headerlink" title="2、推送到服务器"></a>2、推送到服务器</h3><p>首先，我们回到我们之前创建的那个放置博客的文件夹，再次进入终端。<br>然后输入 <code>cnpm install --save hexo-deployer-git</code>  等待安装。</p>
+<p>然后我们回到那个文件夹，用记事本或者其他文本编辑器打开  _config.yml 文件。<br>拉到下面会看见 <strong>deploy:</strong> </p>
+<p>接下来我们输入以下信息并保存：<img src="https://img-blog.csdnimg.cn/20200325160759722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后我们返回终端窗口<br>输入以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的Github用户名"</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git config --global user.email <span class="string">"你注册Github时用的邮箱 xxx@xxx"</span></span><br></pre></td></tr></table></figure>
+<p>最后我们输入：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>然后会跳出登陆Github账号密码的窗口，输入完之后等待片刻。</p>
+<p><strong>这样就大功告成啦！！！！</strong><br><strong>打开浏览器输入你的Github仓库名（xxx.github.io）就能打开博客了！！！</strong></p>
 <hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<p><strong>这是我第一次写博客，有点不顺手，没经验，有什么不合理的地方请大家多多包涵。</strong></p>
+<p><strong>往后我会不定期写一些总结学习知识点的文章与大家一起学习，至于Hexo主题的优化方面，我自己也在斟酌，往后可能也会写一下经验。</strong></p>
+<p><strong>谢谢观看</strong>### 1、安装Node.js</p>
+<p> 进入 Node.js <a href="https://node.js.org/" target="_blank" rel="noopener">官网</a> </p>
+<blockquote>
+<p><a href="https://node.js.org/" target="_blank" rel="noopener">https://node.js.org/</a></p>
+</blockquote>
+<p>点击下载左边的较稳定版本。下载完之后安装，一直下一步即可。<img src="https://img-blog.csdnimg.cn/20200325101333157.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2-安装-Git-1"><a href="#2-安装-Git-1" class="headerlink" title="2.  安装 Git"></a>2.  安装 Git</h3><p>进入 Git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网</a></p>
+<blockquote>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200325141141497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200325141158479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>也是一样下载完后安装，一直下一步就行了。</p>
+<h1 id="二、安装Hexo-1"><a href="#二、安装Hexo-1" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h1><hr>
+<p>首先，创建一个文件夹（这个文件夹将是你的Hexo博客的一些相关文件放置的地方）<br>然后，打开进入文件夹，点击右键选择 ==Git Bash here== 相当于<strong>从这里进入终端窗口</strong></p>
+<p>分别输入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>查看 node和npm的版本，检测node是否安装成功。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200325144240340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>接下来，我们要安装cnpm</strong></p>
+<p>在终端窗口输入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+<p>等待片刻，安装完后输入  <strong>cnpm</strong>   进行测试。</p>
+<p><strong>然后安装Hexo</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>输入 <strong>hexo -v</strong> 检验<br><img src="https://img-blog.csdnimg.cn/2020032514485886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后输入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>表示把整个项目建立在当前文件夹中</p>
+<p>打开我们刚刚新建立的文件夹，里面含有以下文件即表示博客搭建成功。<br><img src="https://img-blog.csdnimg.cn/20200325151041406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="三、运行测试Hexo-1"><a href="#三、运行测试Hexo-1" class="headerlink" title="三、运行测试Hexo"></a>三、运行测试Hexo</h1><hr>
+<h3 id="1、常用命令-1"><a href="#1、常用命令-1" class="headerlink" title="1、常用命令"></a>1、常用命令</h3><pre><code>#三连：
+ hexo clean          
+ hexo g             
+ hexo s</code></pre><figure class="highlight"><table><tr><td class="code"><pre><span class="line">hexo clean 	#清理缓存文件</span><br><span class="line">hexo g     	#生成文件</span><br><span class="line">hexo s     	#运行本地服务器</span><br><span class="line">hexo d     	#推送到服务器</span><br></pre></td></tr></table></figure>
+<p>创建文章命令：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">"我的博客文章"</span></span><br></pre></td></tr></table></figure>
+<p>然后就会在文件夹/source/_posts里生成一个对应的md文件，用文本编辑器打开他就可以写文章了，注意最好用Markdown格式书写。</p>
+<p>写完之后在终端窗口输入一波三连即可。</p>
+<h3 id="2、运行博客-1"><a href="#2、运行博客-1" class="headerlink" title="2、运行博客"></a>2、运行博客</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>打开浏览器，输入：<code>localohost:4000</code> </p>
+<p><img src="https://img-blog.csdnimg.cn/20200325153036606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>上图是我个人自己设置过主题后的效果</p>
+<p>你们刚搭建完的Hexo博客可能不长这样，那是Hexo默认给你设置的主题。</p>
+<h1 id="四、将Hexo博客部署到Github上-1"><a href="#四、将Hexo博客部署到Github上-1" class="headerlink" title="四、将Hexo博客部署到Github上"></a>四、将Hexo博客部署到Github上</h1><hr>
+<p><strong>可能大家觉得每次想打开博客都要先打开终端然后输入hexo s有点麻烦</strong><br><strong>那么，部署到Github上后将会舒服很多</strong></p>
+<p><strong>具体的如何创建一个Github账号在这里就不讲了</strong></p>
+<p><strong>当然，如果你嫌Github运行慢的话，也可以部署到国内的Coding上（具体你们也可以看这位课代表的博客）<a href="https://caiyantao.gitee.io/2019/04/13/Hexo%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="noopener">Hexo学习（二）</a>，在这里就不演示了</strong></p>
+<h3 id="1、创建Github仓库-1"><a href="#1、创建Github仓库-1" class="headerlink" title="1、创建Github仓库"></a>1、创建Github仓库</h3><p>先打开Github官网，登录上我们的账号，然后创建一个仓库，这个仓库将是你在终端把文件推送到Github上储存文件的地方。</p>
+<p><strong>注意：这里的仓库名一定要是 你的Github帐户名.github.io</strong><br><strong>这也是你以后打开博客的网址</strong><br><img src="https://img-blog.csdnimg.cn/20200325155225935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2、推送到服务器-1"><a href="#2、推送到服务器-1" class="headerlink" title="2、推送到服务器"></a>2、推送到服务器</h3><p>首先，我们回到我们之前创建的那个放置博客的文件夹，再次进入终端。<br>然后输入 <code>cnpm install --save hexo-deployer-git</code>  等待安装。</p>
+<p>然后我们回到那个文件夹，用记事本或者其他文本编辑器打开  _config.yml 文件。<br>拉到下面会看见 <strong>deploy:</strong> </p>
+<p>接下来我们输入以下信息并保存：<img src="https://img-blog.csdnimg.cn/20200325160759722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjI3MzI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后我们返回终端窗口<br>输入以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的Github用户名"</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git config --global user.email <span class="string">"你注册Github时用的邮箱 xxx@xxx"</span></span><br></pre></td></tr></table></figure>
+<p>最后我们输入：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>然后会跳出登陆Github账号密码的窗口，输入完之后等待片刻。</p>
+<p><strong>这样就大功告成啦！！！！</strong><br><strong>打开浏览器输入你的Github仓库名（xxx.github.io）就能打开博客了！！！</strong></p>
 <hr>
-<p>##参考文献</p>
-<p><a href="http://www.codesheep.cn" target="_blank" rel="noopener">www.codesheep.cn</a></p>
+<p><strong>这是我第一次写博客，有点不顺手，没经验，有什么不合理的地方请大家多多包涵。</strong></p>
+<p><strong>往后我会不定期写一些总结学习知识点的文章与大家一起学习，至于Hexo主题的优化方面，我自己也在斟酌，往后可能也会写一下经验。</strong></p>
+<p><strong>谢谢观看</strong></p>
 ]]></content>
-      <tags>
-        <tag>搭建hexo博客</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hello World</title>

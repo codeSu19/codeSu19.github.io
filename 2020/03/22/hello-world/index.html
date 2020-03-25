@@ -110,7 +110,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -191,42 +191,42 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
+        <li class="menu-item menu-item-首页">
           <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-标签">
           <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-分类">
           <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            分类
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+        <li class="menu-item menu-item-时间表">
+          <a href="/schedule/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
-            Archives
+            时间表
           </a>
         </li>
       
@@ -436,8 +436,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" rel="prev" title="我的第一篇文章">
-                我的第一篇文章 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/25/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2-%E9%83%A8%E7%BD%B2%E5%88%B0Github/" rel="prev" title="搭建hexo博客+部署到Github">
+                搭建hexo博客+部署到Github <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,7 +517,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives">
               
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
@@ -527,15 +527,6 @@
 
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
             
 
           </nav>
@@ -567,7 +558,7 @@
                   <span class="links-of-author-item">
                     <a href="https://blog.csdn.net/weixin_46273248" target="_blank" title="Csdn">
                       
-                        <i class="fa fa-fw fa-csdn"></i>Csdn</a>
+                        <i class="fa fa-fw fa-/images/csdn.png"></i>Csdn</a>
                   </span>
                 
             </div>
@@ -602,6 +593,13 @@
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -649,11 +647,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
